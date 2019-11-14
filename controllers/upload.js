@@ -1,15 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 
-let config = {
-  wechat: {
-    appID: "wxe0d8ad6a6bf9a3bb",
-    appsecret: "1fb18b92f2e6bb446871c8a44d0a000d",
-    token: "john"
-  }
-};
-
-exports.image = async function(ctx) {
+exports.uploadImage = async function(ctx) {
   // console.log(file)
   const file = ctx.request.files.file;
 
