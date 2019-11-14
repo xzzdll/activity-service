@@ -19,7 +19,7 @@
     "koa-static": "^5.0.0",
     "koa-static-server": "^1.4.0",
     "koa2-cors": "^2.0.6",
-    "mongoose": "^5.2.7",
+    "mongoose": "^5.7.5",
     "node-sha1": "^1.0.1"
   },
   "devDependencies": {
