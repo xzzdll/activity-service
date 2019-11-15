@@ -3,7 +3,7 @@ const router = require("./router/index");
 const bodyParser = require("koa-bodyparser");
 const cors = require("koa2-cors");
 const session = require("koa-session");
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
 const config = require("./config");
 const convert = require("koa-convert");
 const compress = require("koa-compress");
@@ -21,14 +21,14 @@ const staticPath = './upload'
 
 const uploadPath = path.join(__dirname, staticPath)
 
-mongoose.connect(
-  config.mongodb,
-  { useNewUrlParser: true }
-);
-mongoose.connection.on("error", console.error);
-mongoose.connection.on("open", () => {
-  console.log("------" + config.mongodb + "数据库连接成功！------");
-});
+// mongoose.connect(
+//   config.mongodb,
+//   { useNewUrlParser: true }
+// );
+// mongoose.connection.on("error", console.error);
+// mongoose.connection.on("open", () => {
+//   console.log("------" + config.mongodb + "数据库连接成功！------");
+// });
 
 const CONFIG = {
   key: "koa:sess",

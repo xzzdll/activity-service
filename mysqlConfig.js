@@ -29,12 +29,12 @@ let allServices = {
     })
 
   },
-  findActivityById: function (name) {
-    let _sql = `select * from users where name="${name}";`
+  findActivityById: function (id) {
+    let _sql = `select * from list where activity_id="${id}";`
     return allServices.query(_sql)
   },
-  addActivity: (obj) => {
-    let _sql = "insert into users set name=?,pass=?,avator=?,moment=?;"
+  addActivity: (id,json) => {
+    let _sql = `insert into list set activity_id="${id}",activity_json="${json}";`
     return allServices.query(_sql, obj)
   },
 }
