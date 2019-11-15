@@ -9,14 +9,13 @@ var pool = mysql.createPool({
 });
 
 let allServices = {
-  query: function (sql, values) {
+  query: function (sql) {
     return new Promise((resolve, reject) => {
       pool.getConnection(function (err, connection) {
         if (err) {
           reject(err)
         } else {
-          connection.query(sql, values, (err, rows) => {
-
+          connection.query(sql, (err, rows) => {
             if (err) {
               reject(err)
             } else {
@@ -35,7 +34,7 @@ let allServices = {
   },
   addActivity: (id,json) => {
     let _sql = `insert into list set activity_id="${id}",activity_json="${json}";`
-    return allServices.query(_sql, obj)
+    return allServices.query(_sql)
   },
 }
 

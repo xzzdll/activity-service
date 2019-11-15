@@ -1,6 +1,6 @@
 const Koa = require("koa");
 const router = require("./router/index");
-const bodyParser = require("koa-bodyparser");
+// const bodyParser = require("koa-bodyparser");
 const cors = require("koa2-cors");
 const session = require("koa-session");
 // const mongoose = require("mongoose");
@@ -45,7 +45,7 @@ app.use(
     cors({
       credentials: true
     }),
-    bodyParser({ jsonLimit: "50mb", formLimit: "50mb" }),
+    // bodyParser({ jsonLimit: "50mb", formLimit: "50mb" }),
     koaBody({
       multipart: true,
       formidable: {
@@ -60,6 +60,6 @@ app.use(
   )
 );
 
-app.listen(3000, () => {
-  console.log("application is starting at port 3000");
+app.listen(8899, () => {
+  console.log("application is starting at port 8899");
 });

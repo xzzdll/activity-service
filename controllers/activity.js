@@ -17,7 +17,7 @@ let activity = {
   set: async function (ctx) {
     let id = ctx.request.body['id'];
     let json = ctx.request.body['activity_json']
-    await activityDatabase.addActivity({id,json})
+    await activityDatabase.addActivity(id,json)
       .then((data) => {
         let r = '';
         if (data.affectedRows != 0) {
