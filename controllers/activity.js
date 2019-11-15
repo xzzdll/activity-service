@@ -8,10 +8,10 @@ let activity = {
 
     if (file.length) {
       ctx.body = {
-        message: "获取成功", status: "true", activity: file[0]
+        message: "获取成功", status: true, activity: file[0]
       };
     } else {
-      ctx.body = { message: "无数据", status: "false", activity: [] };
+      ctx.body = { message: "无数据", status: false, activity: [] };
     }
   },
   set: async function (ctx) {
@@ -23,13 +23,9 @@ let activity = {
         if (data.affectedRows != 0) {
           r = 'ok';
         }
-        ctx.body = {
-          data: r
-        }
-      }).catch(() => {
-        ctx.body = {
-          data: 'err'
-        }
+        ctx.body = { message: "上传成功", status: true};
+      }).catch((err) => {
+        ctx.body = { ...err, status: false};
       })
   }
 }

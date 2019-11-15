@@ -14,8 +14,8 @@ exports.uploadImage = async function(ctx) {
 
   if (file) {
     ctx.body = {
-      message: "上传成功", status: "true", url: `${ctx.origin}/upload/${file.name}` };
+      message: "上传成功", status: true, url: `${ctx.origin}/upload/${file.name}` };
   } else {
-    ctx.body = { message: "上传失败", status: "false" };
+    ctx.body = { message: "上传失败", status: false };
   }
 };

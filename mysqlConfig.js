@@ -17,6 +17,7 @@ let allServices = {
         } else {
           connection.query(sql, (err, rows) => {
             if (err) {
+              console.log(err)
               reject(err)
             } else {
               resolve(rows)
@@ -29,11 +30,11 @@ let allServices = {
 
   },
   findActivityById: function (id) {
-    let _sql = `select * from list where activity_id="${id}";`
+    let _sql = `select * from list where activity_id=${id};`
     return allServices.query(_sql)
   },
   addActivity: (id,json) => {
-    let _sql = `insert into list set activity_id="${id}",activity_json="${json}";`
+    let _sql = `insert into list set activity_id=${id},activity_json='${json}';`
     return allServices.query(_sql)
   },
 }
