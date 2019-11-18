@@ -4,7 +4,7 @@ const activityDatabase = require('../mysqlConfig');
 
 let activity = {
   get: async function (ctx) {
-    const file = await activityDatabase.findActivityById(ctx.request.body['id']);
+    const file = await activityDatabase.findActivityById(ctx.request.query['id']);
 
     if (file.length) {
       ctx.body = {
