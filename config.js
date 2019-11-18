@@ -7,6 +7,6 @@ module.exports.mysqlConfig = {
     USERNAME: 'root', //mysql用户名
     PASSWORD: '123456', //mysql密码
     PORT: '3306', //mysql端口号
-    HOST: '47.98.115.136' //服务器ip
+    HOST: '127.0.0.1' //服务器ip
   }
 }
