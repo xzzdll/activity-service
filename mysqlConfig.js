@@ -33,6 +33,10 @@ let allServices = {
     let _sql = `select * from list where activity_id=${id};`
     return allServices.query(_sql)
   },
+  getAllActivity: function () {
+    let _sql = `select * from list;`
+    return allServices.query(_sql)
+  },
   addActivity: (id,json) => {
     let _sql = `insert into list set activity_id=${id},activity_json='${json}';`
     return allServices.query(_sql)

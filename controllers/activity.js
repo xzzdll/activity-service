@@ -14,6 +14,17 @@ let activity = {
       ctx.body = { message: "无数据", status: false, activity: [] };
     }
   },
+    getAll: async function (ctx) {
+    const file = await activityDatabase.getAllActivity();
+
+    if (file.length) {
+      ctx.body = {
+        message: "获取成功", status: true, activity: file
+      };
+    } else {
+      ctx.body = { message: "无数据", status: false, activity: [] };
+    }
+  },
   set: async function (ctx) {
     let id = ctx.request.body['id'];
     let json = ctx.request.body['activity_json']

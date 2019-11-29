@@ -6,5 +6,6 @@ router.post('/image/upload', uploadImage);
 
 router.get('/activity/get', get);
 router.post('/activity/set', set);
+router.get('/activity/getAll', get);
 
 module.exports = router
