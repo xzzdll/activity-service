@@ -38,6 +38,19 @@ let activity = {
       }).catch((err) => {
         ctx.body = { ...err, status: false};
       })
+  },
+  delete: async function (ctx) {
+    let id = ctx.request.body['id'];
+    await activityDatabase.deleteActivity(id)
+      .then((data) => {
+        let r = '';
+        if (data.affectedRows != 0) {
+          r = 'ok';
+        }
+        ctx.body = { message: "删除成功", status: true };
+      }).catch((err) => {
+        ctx.body = { ...err, status: false };
+      })
   }
 }
 
