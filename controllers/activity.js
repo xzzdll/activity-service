@@ -39,7 +39,7 @@ let activity = {
         ctx.body = { ...err, status: false};
       })
   },
-  delete: async function (ctx) {
+  deleteById: async function (ctx) {
     let id = ctx.request.body['id'];
     await activityDatabase.deleteActivity(id)
       .then((data) => {
