@@ -41,7 +41,7 @@ let allServices = {
     let _sql = `insert into list set activity_id=${id},activity_json='${json}';`
     return allServices.query(_sql)
   },
-  addActivity: (id) => {
+  deleteActivity: (id) => {
     let _sql = `delete from list where activity_id=${id};`
     return allServices.query(_sql)
   },
