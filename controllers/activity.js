@@ -14,7 +14,7 @@ let activity = {
       ctx.body = { message: "无数据", status: false, activity: [] };
     }
   },
-    getAll: async function (ctx) {
+  getAll: async function (ctx) {
     const file = await activityDatabase.getAllActivity();
 
     if (file.length) {
@@ -28,15 +28,30 @@ let activity = {
   set: async function (ctx) {
     let id = ctx.request.body['id'];
     let json = ctx.request.body['activity_json']
-    await activityDatabase.addActivity(id,json)
+
+    const activity = await activityDatabase.findActivity(id)
+    if (activity.length !== 0) {
+      await activityDatabase.updateActivity(id, json)
+        .then((data) => {
+          let r = '';
+          if (data.affectedRows != 0) {
+            r = 'ok';
+          }
+          ctx.body = { message: "更新成功", status: true };
+        }).catch((err) => {
+          ctx.body = { ...err, status: false };
+        })
+      return;
+    }
+    await activityDatabase.addActivity(id, json)
       .then((data) => {
         let r = '';
         if (data.affectedRows != 0) {
           r = 'ok';
         }
-        ctx.body = { message: "上传成功", status: true};
+        ctx.body = { message: "上传成功", status: true };
       }).catch((err) => {
-        ctx.body = { ...err, status: false};
+        ctx.body = { ...err, status: false };
       })
   },
   deleteById: async function (ctx) {
